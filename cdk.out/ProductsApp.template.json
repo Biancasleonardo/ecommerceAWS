@@ -1,0 +1,580 @@
+{
+ "Resources": {
+  "ProductsDdb1827BBAA": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     }
+    ],
+    "ProvisionedThroughput": {
+     "ReadCapacityUnits": 1,
+     "WriteCapacityUnits": 1
+    },
+    "TableName": "products"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/ProductsDdb/Resource"
+   }
+  },
+  "productsEventsFunctionServiceRole6E24EC96": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsEventsFunction/ServiceRole/Resource"
+   }
+  },
+  "productsEventsFunctionServiceRoleDefaultPolicy6DD1859C": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "xray:PutTelemetryRecords",
+        "xray:PutTraceSegments"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::ImportValue": "EventsDdb:ExportsOutputFnGetAttEventsDdbF6692630Arn3CB4F1C7"
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "productsEventsFunctionServiceRoleDefaultPolicy6DD1859C",
+    "Roles": [
+     {
+      "Ref": "productsEventsFunctionServiceRole6E24EC96"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsEventsFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "productsEventsFunctionBF887FD4": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-273405590510-us-east-1",
+     "S3Key": "2174bdcb31abe4ba5b34bc43d0d434caaa835290b0eeb4e2995de639600db57d.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "productsEventsFunctionServiceRole6E24EC96",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "EVENTS_DDB": {
+       "Fn::ImportValue": "EventsDdb:ExportsOutputRefEventsDdbF6692630A5AF3A92"
+      },
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "FunctionName": "productsEventsFunction",
+    "Handler": "index.handler",
+    "Layers": [
+     {
+      "Ref": "SsmParameterValueProductEventsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:16"
+    ],
+    "MemorySize": 128,
+    "Runtime": "nodejs16.x",
+    "Timeout": 2,
+    "TracingConfig": {
+     "Mode": "Active"
+    }
+   },
+   "DependsOn": [
+    "productsEventsFunctionServiceRoleDefaultPolicy6DD1859C",
+    "productsEventsFunctionServiceRole6E24EC96"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsEventsFunction/Resource",
+    "aws:asset:path": "asset.2174bdcb31abe4ba5b34bc43d0d434caaa835290b0eeb4e2995de639600db57d",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "productsFetchFunctionServiceRole1B528C44": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsFetchFunction/ServiceRole/Resource"
+   }
+  },
+  "productsFetchFunctionServiceRoleDefaultPolicyE006BB21": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "xray:PutTelemetryRecords",
+        "xray:PutTraceSegments"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:DescribeTable",
+        "dynamodb:GetItem",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:Query",
+        "dynamodb:Scan"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "ProductsDdb1827BBAA",
+          "Arn"
+         ]
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "productsFetchFunctionServiceRoleDefaultPolicyE006BB21",
+    "Roles": [
+     {
+      "Ref": "productsFetchFunctionServiceRole1B528C44"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsFetchFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "productsFetchFunction2DB1CD0C": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-273405590510-us-east-1",
+     "S3Key": "c33feb9182d41d35173e60068ab26bbfc22b7dc276e1600ab04745cae1b7876e.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "productsFetchFunctionServiceRole1B528C44",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "PRODUCTS_DDB": {
+       "Ref": "ProductsDdb1827BBAA"
+      },
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "FunctionName": "productsFetchFunction",
+    "Handler": "index.handler",
+    "Layers": [
+     {
+      "Ref": "SsmParameterValueProductsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:16"
+    ],
+    "MemorySize": 128,
+    "Runtime": "nodejs16.x",
+    "Timeout": 5,
+    "TracingConfig": {
+     "Mode": "Active"
+    }
+   },
+   "DependsOn": [
+    "productsFetchFunctionServiceRoleDefaultPolicyE006BB21",
+    "productsFetchFunctionServiceRole1B528C44"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsFetchFunction/Resource",
+    "aws:asset:path": "asset.c33feb9182d41d35173e60068ab26bbfc22b7dc276e1600ab04745cae1b7876e",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "productsAdminFunctionServiceRoleE1F41EDA": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsAdminFunction/ServiceRole/Resource"
+   }
+  },
+  "productsAdminFunctionServiceRoleDefaultPolicyD40B41D3": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "xray:PutTelemetryRecords",
+        "xray:PutTraceSegments"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "ProductsDdb1827BBAA",
+          "Arn"
+         ]
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      },
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "productsEventsFunctionBF887FD4",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "productsEventsFunctionBF887FD4",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "productsAdminFunctionServiceRoleDefaultPolicyD40B41D3",
+    "Roles": [
+     {
+      "Ref": "productsAdminFunctionServiceRoleE1F41EDA"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsAdminFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "productsAdminFunction605ACDF8": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-273405590510-us-east-1",
+     "S3Key": "7a09f0d73a6531d5470e5348a0957ae2abecc18d17684993925e625b8a5498c2.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "productsAdminFunctionServiceRoleE1F41EDA",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "PRODUCTS_DDB": {
+       "Ref": "ProductsDdb1827BBAA"
+      },
+      "PRODUCT_EVENTS_FUNCTION_NAME": {
+       "Ref": "productsEventsFunctionBF887FD4"
+      },
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "FunctionName": "productsAdminFunction",
+    "Handler": "index.handler",
+    "Layers": [
+     {
+      "Ref": "SsmParameterValueProductEventsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     {
+      "Ref": "SsmParameterValueProductsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:16"
+    ],
+    "MemorySize": 128,
+    "Runtime": "nodejs16.x",
+    "Timeout": 5,
+    "TracingConfig": {
+     "Mode": "Active"
+    }
+   },
+   "DependsOn": [
+    "productsAdminFunctionServiceRoleDefaultPolicyD40B41D3",
+    "productsAdminFunctionServiceRoleE1F41EDA"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/productsAdminFunction/Resource",
+    "aws:asset:path": "asset.7a09f0d73a6531d5470e5348a0957ae2abecc18d17684993925e625b8a5498c2",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWPQQ+CMAyFf4v3UUWN8SomHg1B76Rs1QzYltChIYT/7hh4+vqavtd2D+cUdhv8ciJVk7S6gvHhUTYitMpRDRaNU6H5xKolcX3ZWEyiRVMpLK1TVDPcI269lV47KzQaGAu3GCJz12o5zHKpJsGHEpnJM1xmBA1ZLxvyGTKt8RDm/6GTKIhd38kYmmOHhjx1IrrDyW9t33HdOjWJ+TaoeftJT5Aew5c1a510vfXaEBQLf1bB4oYBAQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsApp/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueProductsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "ProductsLayerVersionArn"
+  },
+  "SsmParameterValueProductEventsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "ProductEventsLayerVersionArn"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Outputs": {
+  "ExportsOutputFnGetAttProductsDdb1827BBAAArnF97AE18C": {
+   "Value": {
+    "Fn::GetAtt": [
+     "ProductsDdb1827BBAA",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "ProductsApp:ExportsOutputFnGetAttProductsDdb1827BBAAArnF97AE18C"
+   }
+  },
+  "ExportsOutputRefProductsDdb1827BBAA6B56BB73": {
+   "Value": {
+    "Ref": "ProductsDdb1827BBAA"
+   },
+   "Export": {
+    "Name": "ProductsApp:ExportsOutputRefProductsDdb1827BBAA6B56BB73"
+   }
+  },
+  "ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5": {
+   "Value": {
+    "Fn::GetAtt": [
+     "productsFetchFunction2DB1CD0C",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "ProductsApp:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+   }
+  },
+  "ExportsOutputFnGetAttproductsAdminFunction605ACDF8ArnF578556C": {
+   "Value": {
+    "Fn::GetAtt": [
+     "productsAdminFunction605ACDF8",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "ProductsApp:ExportsOutputFnGetAttproductsAdminFunction605ACDF8ArnF578556C"
+   }
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

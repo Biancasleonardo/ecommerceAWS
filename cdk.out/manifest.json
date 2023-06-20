@@ -1,0 +1,893 @@
+{
+  "version": "32.0.0",
+  "artifacts": {
+    "ProductsAppLayers.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ProductsAppLayers.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ProductsAppLayers": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://273405590510/us-east-1",
+      "properties": {
+        "templateFile": "ProductsAppLayers.template.json",
+        "tags": {
+          "cost": "ECommerce",
+          "team": "equipe1"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-deploy-role-273405590510-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-cfn-exec-role-273405590510-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-273405590510-us-east-1/cb9dd6074ef6644f6abdee4671c79fd04c5fe2b3cefeb13209dc99305b9f7ab3.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ProductsAppLayers.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-lookup-role-273405590510-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ProductsAppLayers.assets"
+      ],
+      "metadata": {
+        "/ProductsAppLayers": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost",
+                "Value": "ECommerce"
+              },
+              {
+                "Key": "team",
+                "Value": "equipe1"
+              }
+            ]
+          }
+        ],
+        "/ProductsAppLayers/ProductsLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProductsLayerE6FA8D3F"
+          }
+        ],
+        "/ProductsAppLayers/ProductsLayerVersionArn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProductsLayerVersionArn9E522855"
+          }
+        ],
+        "/ProductsAppLayers/ProductEventsLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProductEventsLayer7DB7704C"
+          }
+        ],
+        "/ProductsAppLayers/ProductEventsLayerVersionArn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProductEventsLayerVersionArn123FCBD1"
+          }
+        ],
+        "/ProductsAppLayers/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ProductsAppLayers/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ProductsAppLayers/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ProductsAppLayers"
+    },
+    "EventsDdb.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "EventsDdb.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "EventsDdb": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://273405590510/us-east-1",
+      "properties": {
+        "templateFile": "EventsDdb.template.json",
+        "tags": {
+          "cost": "ECommerce",
+          "team": "equipe1"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-deploy-role-273405590510-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-cfn-exec-role-273405590510-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-273405590510-us-east-1/0769f7ba9567d236db63486a39f5a1f516c1d8489c6c0a2f6b7431c582c15ad5.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "EventsDdb.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-lookup-role-273405590510-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "EventsDdb.assets"
+      ],
+      "metadata": {
+        "/EventsDdb": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost",
+                "Value": "ECommerce"
+              },
+              {
+                "Key": "team",
+                "Value": "equipe1"
+              }
+            ]
+          }
+        ],
+        "/EventsDdb/EventsDdb": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "EventsDdbF6692630"
+            }
+          }
+        ],
+        "/EventsDdb/EventsDdb/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventsDdbF6692630"
+          }
+        ],
+        "/EventsDdb/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/EventsDdb/Exports/Output{\"Fn::GetAtt\":[\"EventsDdbF6692630\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttEventsDdbF6692630Arn3CB4F1C7"
+          }
+        ],
+        "/EventsDdb/Exports/Output{\"Ref\":\"EventsDdbF6692630\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefEventsDdbF6692630A5AF3A92"
+          }
+        ],
+        "/EventsDdb/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/EventsDdb/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "EventsDdb"
+    },
+    "ProductsApp.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ProductsApp.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ProductsApp": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://273405590510/us-east-1",
+      "properties": {
+        "templateFile": "ProductsApp.template.json",
+        "tags": {
+          "cost": "ECommerce",
+          "team": "equipe1"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-deploy-role-273405590510-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-cfn-exec-role-273405590510-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-273405590510-us-east-1/c92c6d5c20758208d3b39220d2a7d1ad50dbc9f6ede34dbc9e2a0b03144a13e0.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ProductsApp.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-lookup-role-273405590510-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ProductsAppLayers",
+        "EventsDdb",
+        "ProductsApp.assets"
+      ],
+      "metadata": {
+        "/ProductsApp": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost",
+                "Value": "ECommerce"
+              },
+              {
+                "Key": "team",
+                "Value": "equipe1"
+              }
+            ]
+          }
+        ],
+        "/ProductsApp/ProductsDdb": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "ProductsDdb1827BBAA"
+            }
+          }
+        ],
+        "/ProductsApp/ProductsDdb/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProductsDdb1827BBAA"
+          }
+        ],
+        "/ProductsApp/SsmParameterValue:ProductsLayerVersionArn:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueProductsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/ProductsApp/SsmParameterValue:ProductEventsLayerVersionArn:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueProductEventsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/ProductsApp/productsEventsFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsEventsFunctionServiceRole6E24EC96"
+          }
+        ],
+        "/ProductsApp/productsEventsFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsEventsFunctionServiceRoleDefaultPolicy6DD1859C"
+          }
+        ],
+        "/ProductsApp/productsEventsFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsEventsFunctionBF887FD4"
+          }
+        ],
+        "/ProductsApp/productsFetchFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsFetchFunctionServiceRole1B528C44"
+          }
+        ],
+        "/ProductsApp/productsFetchFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsFetchFunctionServiceRoleDefaultPolicyE006BB21"
+          }
+        ],
+        "/ProductsApp/productsFetchFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsFetchFunction2DB1CD0C"
+          }
+        ],
+        "/ProductsApp/productsAdminFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsAdminFunctionServiceRoleE1F41EDA"
+          }
+        ],
+        "/ProductsApp/productsAdminFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsAdminFunctionServiceRoleDefaultPolicyD40B41D3"
+          }
+        ],
+        "/ProductsApp/productsAdminFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "productsAdminFunction605ACDF8"
+          }
+        ],
+        "/ProductsApp/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ProductsApp/Exports/Output{\"Fn::GetAtt\":[\"ProductsDdb1827BBAA\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttProductsDdb1827BBAAArnF97AE18C"
+          }
+        ],
+        "/ProductsApp/Exports/Output{\"Ref\":\"ProductsDdb1827BBAA\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefProductsDdb1827BBAA6B56BB73"
+          }
+        ],
+        "/ProductsApp/Exports/Output{\"Fn::GetAtt\":[\"productsFetchFunction2DB1CD0C\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+          }
+        ],
+        "/ProductsApp/Exports/Output{\"Fn::GetAtt\":[\"productsAdminFunction605ACDF8\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttproductsAdminFunction605ACDF8ArnF578556C"
+          }
+        ],
+        "/ProductsApp/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ProductsApp/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ProductsApp"
+    },
+    "OrdersAppLayers.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "OrdersAppLayers.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "OrdersAppLayers": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://273405590510/us-east-1",
+      "properties": {
+        "templateFile": "OrdersAppLayers.template.json",
+        "tags": {
+          "cost": "ECommerce",
+          "team": "equipe1"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-deploy-role-273405590510-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-cfn-exec-role-273405590510-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-273405590510-us-east-1/5e8c3fe06c0712015984b5f83cf37017a5ce9800d0ce4b0943f2ab5770431248.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "OrdersAppLayers.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-lookup-role-273405590510-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "OrdersAppLayers.assets"
+      ],
+      "metadata": {
+        "/OrdersAppLayers": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost",
+                "Value": "ECommerce"
+              },
+              {
+                "Key": "team",
+                "Value": "equipe1"
+              }
+            ]
+          }
+        ],
+        "/OrdersAppLayers/OrdersLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersLayerCD96C328"
+          }
+        ],
+        "/OrdersAppLayers/OrdersLayerVersionArn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersLayerVersionArnE2672B9F"
+          }
+        ],
+        "/OrdersAppLayers/OrdersApiLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersApiLayer2963F6C6"
+          }
+        ],
+        "/OrdersAppLayers/OrdersApiLayerVersionArn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersApiLayerVersionArnD0B5DDEF"
+          }
+        ],
+        "/OrdersAppLayers/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/OrdersAppLayers/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/OrdersAppLayers/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "OrdersAppLayers"
+    },
+    "OrdersApp.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "OrdersApp.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "OrdersApp": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://273405590510/us-east-1",
+      "properties": {
+        "templateFile": "OrdersApp.template.json",
+        "tags": {
+          "cost": "ECommerce",
+          "team": "equipe1"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-deploy-role-273405590510-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-cfn-exec-role-273405590510-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-273405590510-us-east-1/218001e4520dbf583cf6ca864f1960ae0ab66fe12553c9dd17a977d3aa2419e1.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "OrdersApp.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-lookup-role-273405590510-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ProductsApp",
+        "OrdersAppLayers",
+        "OrdersApp.assets"
+      ],
+      "metadata": {
+        "/OrdersApp": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost",
+                "Value": "ECommerce"
+              },
+              {
+                "Key": "team",
+                "Value": "equipe1"
+              }
+            ]
+          }
+        ],
+        "/OrdersApp/OrdersDdb": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "OrdersDdb8DB92DF9"
+            }
+          }
+        ],
+        "/OrdersApp/OrdersDdb/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersDdb8DB92DF9"
+          }
+        ],
+        "/OrdersApp/SsmParameterValue:OrdersLayerVersionArn:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueOrdersLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/OrdersApp/SsmParameterValue:OrdersApiLayerVersionArn:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueOrdersApiLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/OrdersApp/SsmParameterValue:ProductsLayerVersionArn:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueProductsLayerVersionArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/OrdersApp/OrdersFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersFunctionServiceRoleA7C5E86F"
+          }
+        ],
+        "/OrdersApp/OrdersFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersFunctionServiceRoleDefaultPolicyE0D62EE3"
+          }
+        ],
+        "/OrdersApp/OrdersFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersFunctionC129706A"
+          }
+        ],
+        "/OrdersApp/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/OrdersApp/Exports/Output{\"Fn::GetAtt\":[\"OrdersFunctionC129706A\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttOrdersFunctionC129706AArn1C82C3BD"
+          }
+        ],
+        "/OrdersApp/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/OrdersApp/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "OrdersApp"
+    },
+    "ECommerceApi.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ECommerceApi.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ECommerceApi": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://273405590510/us-east-1",
+      "properties": {
+        "templateFile": "ECommerceApi.template.json",
+        "tags": {
+          "cost": "ECommerce",
+          "team": "equipe1"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-deploy-role-273405590510-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-cfn-exec-role-273405590510-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-273405590510-us-east-1/3ecf6943222d111a2dff3be985f09c4a46e440e9b497aa0421816a97dfc2d1e5.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ECommerceApi.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-lookup-role-273405590510-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ProductsApp",
+        "OrdersApp",
+        "ECommerceApi.assets"
+      ],
+      "metadata": {
+        "/ECommerceApi": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost",
+                "Value": "ECommerce"
+              },
+              {
+                "Key": "team",
+                "Value": "equipe1"
+              }
+            ]
+          }
+        ],
+        "/ECommerceApi/ECommerceApiLogs/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiLogs16FEC884"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiE79CFB4A"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiCloudWatchRoleA0000002"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiAccountA3F17E7C"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiDeploymentC537DBB652dad842543ef59177e341a68048cc3e"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiDeploymentStageprod34BEADF8"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiEndpointA4C226BB"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproducts320180E3"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/GET/ApiPermission.ECommerceApi3E70358D.GET..products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsGETApiPermissionECommerceApi3E70358DGETproducts33045144"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/GET/ApiPermission.Test.ECommerceApi3E70358D.GET..products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsGETApiPermissionTestECommerceApi3E70358DGETproducts900FFBF1"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsGET39FAC467"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidBA77D237"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/GET/ApiPermission.ECommerceApi3E70358D.GET..products.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidGETApiPermissionECommerceApi3E70358DGETproductsid26FCFDD5"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/GET/ApiPermission.Test.ECommerceApi3E70358D.GET..products.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidGETApiPermissionTestECommerceApi3E70358DGETproductsidCF7E569E"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidGET92BAF597"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/PUT/ApiPermission.ECommerceApi3E70358D.PUT..products.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidPUTApiPermissionECommerceApi3E70358DPUTproductsid4B1016ED"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/PUT/ApiPermission.Test.ECommerceApi3E70358D.PUT..products.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidPUTApiPermissionTestECommerceApi3E70358DPUTproductsidC7AA5068"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidPUTD9C81FF1"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/DELETE/ApiPermission.ECommerceApi3E70358D.DELETE..products.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidDELETEApiPermissionECommerceApi3E70358DDELETEproductsidD6C7799B"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/DELETE/ApiPermission.Test.ECommerceApi3E70358D.DELETE..products.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidDELETEApiPermissionTestECommerceApi3E70358DDELETEproductsid59D5159E"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/{id}/DELETE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsidDELETE504E96B0"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/POST/ApiPermission.ECommerceApi3E70358D.POST..products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsPOSTApiPermissionECommerceApi3E70358DPOSTproducts4EB30814"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/POST/ApiPermission.Test.ECommerceApi3E70358D.POST..products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsPOSTApiPermissionTestECommerceApi3E70358DPOSTproductsD0ACCFC9"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/products/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiproductsPOST00574EB0"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiorders2C7B5D79"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/GET/ApiPermission.ECommerceApi3E70358D.GET..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersGETApiPermissionECommerceApi3E70358DGETorders5DC1DB41"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/GET/ApiPermission.Test.ECommerceApi3E70358D.GET..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersGETApiPermissionTestECommerceApi3E70358DGETordersEAD5E367"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersGETECA9A526"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/DELETE/ApiPermission.ECommerceApi3E70358D.DELETE..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersDELETEApiPermissionECommerceApi3E70358DDELETEorders9CB804B8"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/DELETE/ApiPermission.Test.ECommerceApi3E70358D.DELETE..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersDELETEApiPermissionTestECommerceApi3E70358DDELETEordersC4C6A715"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/DELETE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersDELETEF51EE1D4"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/POST/ApiPermission.ECommerceApi3E70358D.POST..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersPOSTApiPermissionECommerceApi3E70358DPOSTorders4EAB5C4C"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/POST/ApiPermission.Test.ECommerceApi3E70358D.POST..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersPOSTApiPermissionTestECommerceApi3E70358DPOSTordersB735BAF6"
+          }
+        ],
+        "/ECommerceApi/ECommerceApi/Default/orders/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ECommerceApiordersPOST2157B406"
+          }
+        ],
+        "/ECommerceApi/OrderDeletionValidator/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrderDeletionValidator2CB779B7"
+          }
+        ],
+        "/ECommerceApi/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ECommerceApi/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ECommerceApi/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ECommerceApi"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

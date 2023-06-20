@@ -1,0 +1,34 @@
+{
+  "version": "32.0.0",
+  "files": {
+    "f6f8c2b2315b3b76130f736f8409472cb6d365467037de214f524c77d6ca47fa": {
+      "source": {
+        "path": "asset.f6f8c2b2315b3b76130f736f8409472cb6d365467037de214f524c77d6ca47fa",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "273405590510-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-273405590510-us-east-1",
+          "objectKey": "f6f8c2b2315b3b76130f736f8409472cb6d365467037de214f524c77d6ca47fa.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-file-publishing-role-273405590510-us-east-1"
+        }
+      }
+    },
+    "218001e4520dbf583cf6ca864f1960ae0ab66fe12553c9dd17a977d3aa2419e1": {
+      "source": {
+        "path": "OrdersApp.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "273405590510-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-273405590510-us-east-1",
+          "objectKey": "218001e4520dbf583cf6ca864f1960ae0ab66fe12553c9dd17a977d3aa2419e1.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-file-publishing-role-273405590510-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

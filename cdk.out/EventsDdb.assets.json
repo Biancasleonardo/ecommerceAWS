@@ -1,0 +1,20 @@
+{
+  "version": "32.0.0",
+  "files": {
+    "0769f7ba9567d236db63486a39f5a1f516c1d8489c6c0a2f6b7431c582c15ad5": {
+      "source": {
+        "path": "EventsDdb.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "273405590510-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-273405590510-us-east-1",
+          "objectKey": "0769f7ba9567d236db63486a39f5a1f516c1d8489c6c0a2f6b7431c582c15ad5.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::273405590510:role/cdk-hnb659fds-file-publishing-role-273405590510-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

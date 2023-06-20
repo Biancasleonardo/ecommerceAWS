@@ -1,0 +1,115 @@
+{
+ "Resources": {
+  "ProductsLayerE6FA8D3F": {
+   "Type": "AWS::Lambda::LayerVersion",
+   "Properties": {
+    "Content": {
+     "S3Bucket": "cdk-hnb659fds-assets-273405590510-us-east-1",
+     "S3Key": "a5237b9b5972ce233e2c1ed3df769e5c26aa7bab2c343cd799d36fb9a6439a4e.zip"
+    },
+    "CompatibleRuntimes": [
+     "nodejs14.x"
+    ],
+    "LayerName": "ProductsLayer"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppLayers/ProductsLayer/Resource",
+    "aws:asset:path": "asset.a5237b9b5972ce233e2c1ed3df769e5c26aa7bab2c343cd799d36fb9a6439a4e",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Content"
+   }
+  },
+  "ProductsLayerVersionArn9E522855": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": {
+     "Ref": "ProductsLayerE6FA8D3F"
+    },
+    "Name": "ProductsLayerVersionArn"
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppLayers/ProductsLayerVersionArn/Resource"
+   }
+  },
+  "ProductEventsLayer7DB7704C": {
+   "Type": "AWS::Lambda::LayerVersion",
+   "Properties": {
+    "Content": {
+     "S3Bucket": "cdk-hnb659fds-assets-273405590510-us-east-1",
+     "S3Key": "c1fc7ff6c08584162b92692bd80a84c676720aed9fcac663ca5053ecf810f597.zip"
+    },
+    "CompatibleRuntimes": [
+     "nodejs14.x"
+    ],
+    "LayerName": "ProductEventsLayer"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppLayers/ProductEventsLayer/Resource",
+    "aws:asset:path": "asset.c1fc7ff6c08584162b92692bd80a84c676720aed9fcac663ca5053ecf810f597",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Content"
+   }
+  },
+  "ProductEventsLayerVersionArn123FCBD1": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": {
+     "Ref": "ProductEventsLayer7DB7704C"
+    },
+    "Name": "ProductEventsLayerVersionArn"
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppLayers/ProductEventsLayerVersionArn/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02OQQvCMAyFf4v3LjoV8eq87iATvI6si6Pb2kHSKTL6320VxNPjS/LeyxaOOWxW+JRMt0M2mgaWq0c9qDiqlxFt0yIsJb6Ib8RiJqfOd/fPQcmuRhHyAqckkaGY9UC+QCElYlMmG9ddkNGSJ04ZPwhBfXyxt4tHaVeRTDNrCspNLUEv60d+gHwfX+3FmIxn540lqL76BjfnOYPGAAAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppLayers/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
